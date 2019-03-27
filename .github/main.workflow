@@ -4,7 +4,7 @@ workflow "lint shell scripts" {
 }
 
 action "lint scripts" {
-  uses = "fearphage/shellcheck-action@0.0.1-debug4"
+  uses = "fearphage/shellcheck-action@0.0.1-debug5"
   secrets = ["GITHUB_TOKEN"]
   env = {
     DEBUG_ACTION = "true"
