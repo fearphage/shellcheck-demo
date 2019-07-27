@@ -21,6 +21,3 @@ printf 'vid%05d.avi\n' {34..120} |
     do
       ffmpeg -i "$file" "${file%.*}.mp4"
     done
-
-
-
