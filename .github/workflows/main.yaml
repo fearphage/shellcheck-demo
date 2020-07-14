@@ -1,0 +1,12 @@
+name: lint shell scripts
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: fearphage/shellcheck-action@0.0.3
+        env:
+          DEBUG_ACTION: true
