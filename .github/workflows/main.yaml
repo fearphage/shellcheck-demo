@@ -10,3 +10,4 @@ jobs:
       - uses: fearphage/shellcheck-action@0.0.3
         env:
           DEBUG_ACTION: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
