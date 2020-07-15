@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: fearphage/shellcheck-action@0.0.4
+      - uses: fearphage/shellcheck-action@master
         env:
           DEBUG_ACTION: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
