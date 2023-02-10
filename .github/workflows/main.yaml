@@ -8,8 +8,10 @@ jobs:
       checks: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: fearphage/shellcheck-action@master
+      - uses: actions/checkout@v3
+      - uses: fearphage/shellcheck-action@allow-user-input
         env:
           DEBUG_ACTION: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          ignore-paths: not-here
