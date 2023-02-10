@@ -1,0 +1,23 @@
+#!/bin/bash
+# Demo code from https://www.vidarholen.net/contents/blog/?p=632
+
+# Show uptime for all hosts
+while IFS= read -r host
+do
+  ssh "$host" uptime
+done < hostnames.txt
+
+
+# Play mkv video files in random order
+find . -name '*.mkv' | shuf |
+    while IFS= read -r file
+    do
+      mplayer -fs "$file"
+    done
+
+# Convert a range of avi files to mp4
+printf 'vid%05d.avi\n' {34..120} |
+    while IFS= read -r file
+    do
+      ffmpeg -i "$file" "${file%.*}.mp4"
+    done
