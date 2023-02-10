@@ -1,6 +1,6 @@
 name: lint shell scripts
 
-on: [push]
+on: [pull_request, push]
 
 jobs:
   test:
