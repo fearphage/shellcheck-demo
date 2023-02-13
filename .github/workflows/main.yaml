@@ -2,14 +2,32 @@ name: lint shell scripts
 
 on: [pull_request, push]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   test:
     permissions:
       checks: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: fearphage/shellcheck-action@master
+      - uses: actions/checkout@v3
+      - uses: fearphage/shellcheck-action@allow-user-input
+        id: meh
         env:
           DEBUG_ACTION: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          dry-run: true
+          ignore-files: ignored.sh
+          ignore-paths: not-here
+          include-files: >-
+            README.md
+            text-files/no-shebang
+      - name: debug
+        env:
+          FILES: ${{ steps.meh.outputs.files }}
+        run: |
+          echo "\$FILES: $FILES"
+
