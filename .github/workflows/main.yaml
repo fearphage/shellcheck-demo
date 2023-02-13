@@ -2,6 +2,9 @@ name: lint shell scripts
 
 on: [pull_request, push]
 
+defaults:
+  shell: bash
+
 jobs:
   test:
     permissions:
@@ -20,5 +23,9 @@ jobs:
           include-files: >-
             README.md
             text-files/no-shebang
-      - run: echo 'files: ${{ steps.meh.outputs.files }}'
+      - name: debug
+        env:
+          FILES: ${{ steps.meh.outputs.files }}
+        run: |
+          echo "\$FILES: $FILES"
 
