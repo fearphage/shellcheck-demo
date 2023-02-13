@@ -20,6 +20,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           dry-run: true
+          ignore-files: ignored.sh
           ignore-paths: not-here
           include-files: >-
             README.md
