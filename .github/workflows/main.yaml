@@ -20,6 +20,5 @@ jobs:
           include-files: >-
             README.md
             text-files/no-shebang
-      - run:
-        echo "files: ${{ steps.meh.outputs.files }}'
+      - run: echo 'files: ${{ steps.meh.outputs.files }}'
 
