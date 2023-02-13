@@ -3,7 +3,8 @@ name: lint shell scripts
 on: [pull_request, push]
 
 defaults:
-  shell: bash
+  run:
+    shell: bash
 
 jobs:
   test:
