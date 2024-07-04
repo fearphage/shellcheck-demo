@@ -12,7 +12,8 @@ jobs:
       checks: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - uses: fearphage/shellcheck-action@allow-user-input
         id: meh
         env:
@@ -25,6 +26,7 @@ jobs:
           include-files: >-
             README.md
             text-files/no-shebang
+
       - name: debug
         env:
           FILES: ${{ steps.meh.outputs.files }}
